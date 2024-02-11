@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sofia - Mis XV años</title>
-</head>
-<body>
-    <h1>Sofia - Mis XV años</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Esta es una invitación para que me acompañes a celebrar mis 15 años."
+    />
+    <title>Sofia Carapia - Mis XV años</title>
+    <style>
+      @font-face {
+        font-family: "Dancing Script";
+        src: local("☺"),
+          url("fonts/DancingScript-VariableFont_wght.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Raleway";
+        src: local("☺"),
+          url("fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero__content">
+        <div class="hero__logo">
+          <h1 class="hero__title">Sofia<br />Carapia</h1>
+          <h2 class="hero__subtitle">Mis XV años</h2>
+        </div>
+        <div class="hero__details">
+          <p class="hero__guests">
+            <strong class="hero__person"></strong> esta es una invitación para
+            que me acompañes a celebrar mis 15 años.
+          </p>
+          <p>La fecha es el próximo:</p>
+          <p class="hero__date">27 de septiembre</p>
+          <p class="hero__time">18:30 hrs</p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const heroPerson = document.querySelector(".hero__person");
+      const urlParams = new URLSearchParams(document.location.search);
+      const forPerson = urlParams.get("para");
+      if (forPerson) {
+        heroPerson.textContent = `${forPerson}:`;
+      }
+    </script>
+  </body>
 </html>
