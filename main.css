@@ -4,6 +4,11 @@
  * Copyright ©2024 Christopher Dí­az Pantoja
  */
 
+:root {
+    --primary-color: #fffff;
+    --secondary-color: #f572f7;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -21,11 +26,11 @@ img {
 }
 
 a {
-    color: #6AB6BA;
+    color: var(--secondary-color);
 }
 
 strong {
-    color: #f572f7;
+    color: var(--secondary-color);
 }
 
 section {
@@ -104,8 +109,81 @@ section {
     margin: 0;
 }
 
+.main {
+    font-size: 1.2rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 2rem 0;
+}
+
+.section__title {
+    font-size: 2em;
+    margin: 1em 0 3rem 0;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 4px;
+}
+
+.section__subtitle {
+    font-size: 1.5em;
+    margin: 1em 0 2rem 0;
+}
+
+.location__content {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+}
+
+.location__place {
+    width: 100%;
+}
+
+.location__place:first-of-type {
+    border-bottom: 1px dashed var(--secondary-color);
+    padding-bottom: 2em;
+}
+
+.location-time {
+    display: block;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2em;
+    margin-top: .5em;
+}
+
+.footer {
+    background-color: #2c0e2c;
+    font-size: .8rem;
+    padding: 1rem 3rem;
+    text-align: center;
+}
+
 @media (min-width: 400px) {
     .hero {
         font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .hero {
+        height: auto;
+        padding: 4rem 0;
+    }
+
+    .location__content {
+        align-items: flex-start;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+    }
+
+    .location__place:first-of-type {
+        border-bottom: none;
+        border-right: 1px dashed var(--secondary-color);
+        padding-bottom: 0
     }
 }
