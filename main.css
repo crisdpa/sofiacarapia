@@ -38,7 +38,8 @@ section {
 }
 
 .hero {
-    background-image: url('img/sky-bg.jpg');
+    background-image: url('img/anime-bg.jpg');
+    background-position: center;
     background-size: cover;
     font-size: 1rem;
     height: 100vh;
@@ -58,7 +59,6 @@ section {
 }
 
 .hero__logo {
-    background-color: black;
     border-radius: 10px;
     margin: 0 0 2em 0;
     padding: 2em;
@@ -66,24 +66,22 @@ section {
 
 .hero__title {
     font-family: 'Dancing Script', cursive;
-    font-size: 2.5em;
+    font-size: 6em;
     font-weight: normal;
-    line-height: 1.3em;
+    line-height: 73px;
     margin: 0 0 .2em 0;
     z-index: 2;
 }
 
 .hero__subtitle {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: normal;
     margin: 0;
     z-index: 2;
 }
 
 .hero__guests {
-    -webkit-backdrop-filter: saturate(0.3);
-    backdrop-filter: saturate(0.3);
     font-size: 1.2em;
     margin: 0;
     text-shadow: 1px 1px 2px #221e1f;
@@ -133,13 +131,15 @@ section {
     margin: 1em 0 2rem 0;
 }
 
-.location__content {
+.location__content,
+.gifts__content {
     align-items: center;
     display: flex;
     flex-flow: column;
 }
 
-.location__place {
+.location__place,
+.gifts__option {
     width: 100%;
 }
 
@@ -174,14 +174,26 @@ section {
         padding: 4rem 0;
     }
 
-    .location__content {
+    .hero__title {
+        font-size: 7em;
+        font-weight: normal;
+        line-height: 87px;
+    }
+
+    .hero__subtitle {
+        font-size: 2em;
+    }
+
+    .location__content,
+    .gifts__content {
         align-items: flex-start;
         display: flex;
         flex-flow: row;
         justify-content: space-around;
     }
 
-    .location__place:first-of-type {
+    .location__place:first-of-type,
+    .gifts__option:first-of-type {
         border-bottom: none;
         border-right: 1px dashed var(--secondary-color);
         padding-bottom: 0
