@@ -98,6 +98,15 @@
             >
           </article>
         </div>
+        <a
+          class="audio-button"
+          data-playing="false"
+          role="switch"
+          aria-checked="false"
+        >
+          <img src="./img/play.png" class="audio-button__play" alt="reproducir música">
+          <img src="./img/pause.png" class="audio-button__pause" alt="pausar música">
+      </a>
       </section>
     </main>
 
@@ -107,6 +116,7 @@
         >christopher.mx</a
       >
     </footer>
+    <audio src="brillas.mp3"></audio>
     <script>
       const heroPerson = document.querySelector(".hero__person");
       const urlParams = new URLSearchParams(document.location.search);
@@ -114,6 +124,35 @@
       if (forPerson) {
         heroPerson.textContent = `${forPerson}:`;
       }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const audioContext = new AudioContext();
+        const audioElement = document.querySelector("audio");
+        const track = audioContext.createMediaElementSource(audioElement);
+        const audioButton = document.querySelector(".audio-button");
+
+        track.connect(audioContext.destination);
+
+        audioButton.addEventListener(
+          "click",
+          () => {
+            if (audioContext.state === "suspended") {
+              audioContext.resume();
+            }
+
+            if (audioButton.dataset.playing === "false") {
+              audioElement.play();
+              audioButton.dataset.playing = "true";
+              audioButton.classList.toggle("audio-button--playing");
+            } else if (audioButton.dataset.playing === "true") {
+              audioElement.pause();
+              audioButton.dataset.playing = "false";
+              audioButton.classList.toggle("audio-button--playing");
+            }
+          },
+          false
+        );
+      });
     </script>
   </body>
 </html>
