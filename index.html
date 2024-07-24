@@ -8,7 +8,10 @@
       name="description"
       content="Esta es una invitación para que me acompañes a celebrar mis 15 años."
     />
-    <meta property="og:image" content="https://sofiacarapia.com/img/opengraph-cover.png" />
+    <meta
+      property="og:image"
+      content="https://sofiacarapia.com/img/opengraph-cover.png"
+    />
     <meta name="robots" content="none" />
     <title>Sofia Carapia - Mis XV años</title>
     <style>
@@ -89,12 +92,14 @@
           <article class="gifts__option">
             <a
               href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51481604"
+              target="_blank"
               >Liverpool</a
             >
           </article>
           <article class="gifts__option">
             <a
               href="https://www.amazon.com.mx/registries/gl/guest-view/2ZBQNCYRALU59"
+              target="_blank"
               >Amazon</a
             >
           </article>
@@ -119,6 +124,12 @@
       </section>
     </main>
 
+    <section class="assistance-confirmation">
+      <p>Favor de confirmar tu asistencia por este medio:</p>
+      <div data-tf-live="01J3H69DW61V3NTBSXB72EGKVR"></div>
+    </section>
+    <script src="//embed.typeform.com/next/embed.js"></script>
+
     <footer class="footer">
       Desarrollado con cariño para Sofi por
       <a href="https://christopher.mx/" target="_blank" rel="noopener"
@@ -129,12 +140,17 @@
       <div class="overlay-intro__content">
         <h1 class="overlay-intro__title">Invitación</h1>
         <h2 class="overlay-intro__subtitle">XV Sofía Carapia</h2>
-        <a class="overlay-intro__link-primary" onclick="closeIntroOverlay()">Ver con música ▶</a>
-        <a class="overlay-intro__link-secundary" onclick="closeIntroOverlay(false)">ver sin música</a>
+        <a class="overlay-intro__link-primary" onclick="closeIntroOverlay()"
+          >Ver con música ▶</a
+        >
+        <a
+          class="overlay-intro__link-secundary"
+          onclick="closeIntroOverlay(false)"
+          >ver sin música</a
+        >
       </div>
     </section>
     <audio src="brillas.mp3" loop></audio>
-
 
     <script>
       const heroPerson = document.querySelector(".hero__person");
@@ -160,13 +176,12 @@
           audioElement.play();
           audioButton.dataset.playing = "true";
           audioButton.classList.toggle("audio-button--playing");
-        }
-        else if (audioButton.dataset.playing === "true") {
+        } else if (audioButton.dataset.playing === "true") {
           audioElement.pause();
           audioButton.dataset.playing = "false";
           audioButton.classList.toggle("audio-button--playing");
         }
-      }
+      };
 
       const closeIntroOverlay = (withSound = true) => {
         introOverlay.style.display = "none";
@@ -174,7 +189,7 @@
         if (withSound) {
           toggleSound();
         }
-      }
+      };
 
       track.connect(audioContext.destination);
       audioButton.addEventListener("click", toggleSound, false);

@@ -214,6 +214,11 @@ section {
     width: 100%;
 }
 
+.gifts__option {
+    font-size: 1.2em;
+    line-height: 2em;
+}
+
 .location__place:first-of-type {
     border-bottom: 1px dashed var(--secondary-color);
     padding-bottom: 2em;
@@ -254,6 +259,12 @@ section {
 
 .audio-button__pause {
     font-size: 2rem;
+}
+
+.assistance-confirmation {
+    background-color: #4d224d;
+    font-size: 1.2rem;
+    padding: 2rem;
 }
 
 .footer {
