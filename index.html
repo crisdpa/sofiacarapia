@@ -104,9 +104,17 @@
           role="switch"
           aria-checked="false"
         >
-          <img src="./img/play.png" class="audio-button__play" alt="reproducir música">
-          <img src="./img/pause.png" class="audio-button__pause" alt="pausar música">
-      </a>
+          <img
+            src="./img/play.png"
+            class="audio-button__play"
+            alt="reproducir música"
+          />
+          <img
+            src="./img/pause.png"
+            class="audio-button__pause"
+            alt="pausar música"
+          />
+        </a>
       </section>
     </main>
 
@@ -116,7 +124,17 @@
         >christopher.mx</a
       >
     </footer>
-    <audio src="brillas.mp3"></audio>
+    <section class="overlay-intro">
+      <div class="overlay-intro__content">
+        <h1 class="overlay-intro__title">Invitación</h1>
+        <h2 class="overlay-intro__subtitle">XV Sofía Carapia</h2>
+        <a class="overlay-intro__link-primary" onclick="closeIntroOverlay()">Ver con música ▶</a>
+        <a class="overlay-intro__link-secundary" onclick="closeIntroOverlay(false)">ver sin música</a>
+      </div>
+    </section>
+    <audio src="brillas.mp3" loop></audio>
+
+
     <script>
       const heroPerson = document.querySelector(".hero__person");
       const urlParams = new URLSearchParams(document.location.search);
@@ -125,34 +143,40 @@
         heroPerson.textContent = `${forPerson}:`;
       }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const audioContext = new AudioContext();
-        const audioElement = document.querySelector("audio");
-        const track = audioContext.createMediaElementSource(audioElement);
-        const audioButton = document.querySelector(".audio-button");
+      const audioContext = new AudioContext();
+      const audioElement = document.querySelector("audio");
+      const track = audioContext.createMediaElementSource(audioElement);
+      const audioButton = document.querySelector(".audio-button");
 
-        track.connect(audioContext.destination);
+      const introOverlay = document.querySelector(".overlay-intro");
 
-        audioButton.addEventListener(
-          "click",
-          () => {
-            if (audioContext.state === "suspended") {
-              audioContext.resume();
-            }
+      const toggleSound = () => {
+        if (audioContext.state === "suspended") {
+          audioContext.resume();
+        }
 
-            if (audioButton.dataset.playing === "false") {
-              audioElement.play();
-              audioButton.dataset.playing = "true";
-              audioButton.classList.toggle("audio-button--playing");
-            } else if (audioButton.dataset.playing === "true") {
-              audioElement.pause();
-              audioButton.dataset.playing = "false";
-              audioButton.classList.toggle("audio-button--playing");
-            }
-          },
-          false
-        );
-      });
+        if (audioButton.dataset.playing === "false") {
+          audioElement.play();
+          audioButton.dataset.playing = "true";
+          audioButton.classList.toggle("audio-button--playing");
+        }
+        else if (audioButton.dataset.playing === "true") {
+          audioElement.pause();
+          audioButton.dataset.playing = "false";
+          audioButton.classList.toggle("audio-button--playing");
+        }
+      }
+
+      const closeIntroOverlay = (withSound = true) => {
+        introOverlay.style.display = "none";
+
+        if (withSound) {
+          toggleSound();
+        }
+      }
+
+      track.connect(audioContext.destination);
+      audioButton.addEventListener("click", toggleSound, false);
     </script>
   </body>
 </html>
