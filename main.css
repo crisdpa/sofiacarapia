@@ -6,7 +6,7 @@
 
 :root {
     --primary-color: #fffff;
-    --secondary-color: #f572f7;
+    --secondary-color: #edc207;
 }
 
 *, *::before, *::after {
@@ -14,8 +14,8 @@
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: #f6f5f5;
+    color: #3c2701;
     font-family: "Raleway", sans-serif;
     -webkit-font-smoothing: antialiased;
     margin: 0;
@@ -39,7 +39,7 @@ section {
 
 .overlay-intro {
     align-items: center;
-    background-image: url('img/anime-bg.jpg');
+    background-image: url('img/flowers-bg.jpg');
     background-position: center;
     background-size: cover;
     bottom: 0;
@@ -53,7 +53,7 @@ section {
 }
 
 .overlay-intro::before {
-    background-color: rgba(0, 0, 0, .85);
+    background-color: rgba(255, 255, 255, .65);
     content: '';
     height: 100%;
     left: 0;
@@ -97,24 +97,12 @@ section {
 }
 
 .hero {
-    background-image: url('img/anime-bg.jpg');
+    background-image: url('img/flowers-bg.jpg');
     background-position: center;
     background-size: cover;
     font-size: 1rem;
     height: 100vh;
     position: relative;
-    z-index: 1;
-}
-
-.hero::before {
-    -webkit-backdrop-filter: brightness(0.7);
-    backdrop-filter: brightness(0.7);
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
     z-index: 1;
 }
 
@@ -155,12 +143,10 @@ section {
 .hero__guests {
     font-size: 1.2em;
     margin: 0;
-    text-shadow: 1px 1px 2px #221e1f;
 }
 
 .hero__details {
-    -webkit-backdrop-filter: blur(48px);
-    backdrop-filter: blur(48px);
+    background-color: rgba(251,238,207, .7);
     border-radius: 10px;
     max-width: 500px;
     padding: 3em 2em;
@@ -233,7 +219,7 @@ section {
 
 .audio-button {
     border-radius: 50%;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid #3c2701;
     bottom: 1rem;
     cursor: pointer;
     height: 50px;
@@ -262,7 +248,7 @@ section {
 }
 
 .assistance-confirmation {
-    background-color: #4d224d;
+    background-color: #fcf3de;
     font-size: 1.2rem;
     padding: 2rem;
 }
@@ -275,7 +261,7 @@ section {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    background-color: #D65C99;
+    background-color: #916c15;
     color: #fff;
     font-size: 16px;
     border-radius: 20px;
@@ -290,7 +276,7 @@ section {
 }
 
 .section-gifts {
-    background-color: #2c0e2c;
+    background-color: #fcf3de;
     padding: 2rem;
 }
 
@@ -307,7 +293,7 @@ section {
 }
 
 .confirmation-dialog {
-    background-color: #4d224d;
+    background-color: #fcf3de;
     border: none;
     bottom: 0;
     height: 100%;
@@ -322,7 +308,7 @@ section {
 }
 
 .confirmation-dialog__form {
-    background-color: #4d224d;
+    background-color: #fcf3de;
 }
 
 body:has(dialog[open]) {
@@ -330,6 +316,7 @@ body:has(dialog[open]) {
 }
 
 .confirmation-dialog__close {
+    cursor: pointer;
     position: absolute;
     right: 7px;
     top: 7px;
@@ -337,7 +324,7 @@ body:has(dialog[open]) {
 }
 
 .footer {
-    background-color: #2c0e2c;
+    background-color: white;
     font-size: .8rem;
     padding: 1rem 3rem;
     text-align: center;
