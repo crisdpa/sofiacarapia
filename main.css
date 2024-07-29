@@ -377,7 +377,7 @@ body:has(dialog[open]) {
     }
 
     .confirmation-dialog {
-        border: chocolate 2px solid;
+        border: #916c15 2px solid;
         border-radius: 20px;
         height: 90%;
         max-height: 753px;
