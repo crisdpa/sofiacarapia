@@ -3,7 +3,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta
       name="description"
       content="Esta es una invitación para que me acompañes a celebrar mis 15 años."
@@ -38,7 +38,7 @@
     <section class="hero">
       <div class="hero__content">
         <div class="hero__logo">
-          <h1 class="hero__title">Sofia<br />Carapia</h1>
+          <h1 class="hero__title">Sofía<br />Carapia<br>Peralta</h1>
           <h2 class="hero__subtitle">Mis XV años</h2>
         </div>
         <div class="hero__details">
@@ -144,9 +144,24 @@
 
     <section class="assistance-confirmation">
       <p>Favor de confirmar tu asistencia por este medio:</p>
-      <div data-tf-live="01J3H69DW61V3NTBSXB72EGKVR"></div>
+      <button class="assistance-confirmation__button" onclick="openConfirmationDialog()">
+        Confirmar asistencia
+      </button>
     </section>
-    <script src="//embed.typeform.com/next/embed.js"></script>
+
+    <dialog class="confirmation-dialog">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSeEGBjAonf7Or8oZ3MkTPfWAliC4IyWttbU1w2twIBPP4_LiA/viewform?embedded=true"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        class="confirmation-dialog__form"
+        >Cargando…</iframe
+      >
+      <img src="./img/close-icon.svg" alt="cerrar" class="confirmation-dialog__close" onclick="closeConfirmationDialog()" />
+    </dialog>
 
     <footer class="footer">
       Desarrollado con cariño para Sofi por
@@ -157,7 +172,7 @@
     <section class="overlay-intro">
       <div class="overlay-intro__content">
         <h1 class="overlay-intro__title">Invitación</h1>
-        <h2 class="overlay-intro__subtitle">XV Sofía Carapia</h2>
+        <h2 class="overlay-intro__subtitle">XV Sofía Carapia Peralta</h2>
         <a class="overlay-intro__link-primary" onclick="closeIntroOverlay()"
           >Ver con música ▶</a
         >
@@ -177,6 +192,8 @@
       if (forPerson) {
         heroPerson.textContent = `${forPerson}:`;
       }
+
+      const confirmationDialog = document.querySelector('.confirmation-dialog');
 
       const audioContext = new AudioContext();
       const audioElement = document.querySelector("audio");
@@ -211,6 +228,14 @@
 
       track.connect(audioContext.destination);
       audioButton.addEventListener("click", toggleSound, false);
+
+      function closeConfirmationDialog() {
+        confirmationDialog.close();
+      }
+
+      function openConfirmationDialog() {
+        confirmationDialog.show();
+      }
     </script>
   </body>
 </html>

@@ -137,7 +137,7 @@ section {
 
 .hero__title {
     font-family: 'Dancing Script', cursive;
-    font-size: 6em;
+    font-size: 5em;
     font-weight: normal;
     line-height: 73px;
     margin: 0 0 .2em 0;
@@ -267,6 +267,28 @@ section {
     padding: 2rem;
 }
 
+.assistance-confirmation__button {
+    all: unset;
+    font-family: Helvetica, Arial, sans-serif;
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #D65C99;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 0 26px;
+    font-weight: bold;
+    height: 40px;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    margin: 0;
+    text-decoration: none;
+}
+
 .section-gifts {
     background-color: #2c0e2c;
     padding: 2rem;
@@ -282,6 +304,36 @@ section {
 
 .section-dresscode__type {
     font-size: 1.4em;
+}
+
+.confirmation-dialog {
+    background-color: #4d224d;
+    border: none;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    padding: 2em;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.confirmation-dialog__form {
+    background-color: #4d224d;
+}
+
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
+.confirmation-dialog__close {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    z-index: 1;
 }
 
 .footer {
@@ -335,5 +387,14 @@ section {
 
     .gifts__option:last-of-type {
         border-right: none;
+    }
+
+    .confirmation-dialog {
+        border: chocolate 2px solid;
+        border-radius: 20px;
+        height: 90%;
+        max-height: 753px;
+        max-width: 600px;
+        width: 90%;
     }
 }
